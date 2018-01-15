@@ -16,6 +16,8 @@ get '/' do
 
     calendar.first.to_ical
   else
-    erb :index
+    erb :index, locals: {
+      webcal_url: request.url.sub(request.scheme, 'webcal')
+    }
   end
 end
